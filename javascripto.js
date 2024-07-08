@@ -17,29 +17,33 @@ function getComputerChoice(){
 
 function getHumanChoice() {
     let uncutHumanChoice = prompt("Rock? Paper? Or scissors?")
+
+    // first letter uppercase, rest lowercase
     let firstLetter = uncutHumanChoice.substring(0,1).toUpperCase();
     let restOfTheWord = uncutHumanChoice.substring(1, uncutHumanChoice.length).toLowerCase()
 
-    let humanChoice = firstLetter.concat(restOfTheWord);
-
-    return humanChoice;
+    return firstLetter.concat(restOfTheWord);
 }
 
+// scores
 let humanScore = 0, computerScore = 0;
 
 function playRound(humanChoice, computerChoice) {
 
+    // check if draw
     if( (humanChoice === "Rock" && computerChoice === "Rock") ||
         (humanChoice === "Paper" && computerChoice === "Paper") ||
         (humanChoice === "Scissors" && computerChoice === "Scissors")) {
         console.log(`${humanChoice} (YOU) VS. ${computerChoice} (COMP): Draw!`)
     }
+    //check if human wins
     else if( (humanChoice === "Rock" && computerChoice === "Scissors") ||
              (humanChoice === "Paper" && computerChoice === "Rock") ||
              (humanChoice === "Scissors" && computerChoice === "Paper") ) {
         console.log(`${humanChoice} (YOU) VS. ${computerChoice} (COMP): You win!`);
         humanScore++;
     }
+    //check if computer wins
     else if( (computerChoice === "Rock" && humanChoice === "Scissors") ||
         (computerChoice === "Paper" && humanChoice === "Rock") ||
         (computerChoice === "Scissors" && humanChoice === "Paper") ) {
@@ -62,4 +66,6 @@ function playGame() {
     }
 }
 
-playGame();
+
+// int main
+playGame()
