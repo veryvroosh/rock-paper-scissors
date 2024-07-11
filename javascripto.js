@@ -49,6 +49,10 @@ function playRound(humanChoice, computerChoice) {
 function updateScores() {
     const humanScoreDiv = document.querySelector("#human-score");
     const computerScoreDiv = document.querySelector("#computer-score");
+
+    const results = document.querySelector("#results");
+    results.style.cssText = "display:flex;"
+
     humanScoreDiv.textContent = `YOU: ${humanScore}`;
     computerScoreDiv.textContent = `COMP: ${computerScore}`;
 }
@@ -59,9 +63,11 @@ function checkWin(){
     const winner = document.querySelector("#game-result");
 
     if(humanScore === 5) {
+        round.textContent = ""
         winner.textContent = "GG You won!";
         disableButtons();
     } else if (computerScore === 5) {
+        round.textContent = ""
         winner.textContent = "You lost! Try again next time D:";
         disableButtons();
     }
